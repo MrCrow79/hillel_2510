@@ -3,4 +3,4 @@ def test_some_data():
 
 
 def test_some_2():
-    assert 3 == 3
+    assert 4 == 4
