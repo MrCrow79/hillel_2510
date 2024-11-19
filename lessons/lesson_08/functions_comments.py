@@ -12,4 +12,3 @@ def calculate_average(nums_list: list, some_param: str) -> float:
 
     return sum(nums_list)/len(nums_list)  # TODO: refactor if len is 0
 
-print(calculate_average([], 'asd'))
