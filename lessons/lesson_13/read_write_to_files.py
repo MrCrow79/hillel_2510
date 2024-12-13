@@ -24,12 +24,12 @@ file_name = 'example.log'
 #     # f.writelines(lines_4_writing)
 
 
-with open(file_name, 'a') as f:
-    f.write('\nnew row from append')
-
-with open(file_name, 'r') as f:
-    data = f.read()
-
-for row in data.split('\n'):
-    if row.endswith('_row'):
-        print(row)
+# with open(file_name, 'a') as f:
+#     f.write('\nnew row from append')
+#
+# with open(file_name, 'r') as f:
+#     data = f.read()
+#
+# for row in data.split('\n'):
+#     if row.endswith('_row'):
+#         print(row)
