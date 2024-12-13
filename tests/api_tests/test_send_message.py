@@ -1,6 +1,7 @@
 import pytest
 import requests
 import logging
+import json
 
 host = '127.0.0.1'
 port = 7071
@@ -9,6 +10,7 @@ BASE_URL = f'http://{host}:{port}/content'
 
 def get_content():
     return requests.get(BASE_URL).json()  # поверне dict {'content': []}
+    # return json.loads(requests.get(BASE_URL).text())  # поверне dict {'content': []}
 
 def get_content_ids() -> list[int]:
     all_content = get_content()

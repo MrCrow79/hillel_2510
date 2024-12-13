@@ -6,7 +6,7 @@ import pathlib
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
-
+pathlib.Path('/home/den/hillel/hillel_2510/asd/asd/aasd').mkdir()
 from core.asserts.function_asserts import assert_user
 
 def get_user_data(user_id):
