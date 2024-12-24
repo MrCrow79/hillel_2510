@@ -1,16 +1,14 @@
 # from lessons.lesson_08.exceptions_example import counter
-import unittest
-import sys
-import pathlib
-import logging
 
+import pathlib
+import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
-
+import logging
 
 from functions import factorial  # from шлях_до_файла_з_початку_проекта import фунція_з_файла
-
+import unittest
 
 class FactorialNegativeTest(unittest.TestCase):
     logger = logging.getLogger(__name__)

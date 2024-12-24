@@ -49,9 +49,10 @@ class Cat(Animal):
 # Використання поліморфізму
 animals = [Dog("Buddy"), Cat("Whiskers")]
 
-for animal in animals:
-    print(f"{animal.name} says: {animal.make_sound()}")
+# for animal in animals:
+#     print(f"{animal.name} says: {animal.make_sound()}")
 # Виведе:
 # Buddy says: Woof!
 # Whiskers says: Meow!
 
+# __all__ = ['Cat', 'Dog']
