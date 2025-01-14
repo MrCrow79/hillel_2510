@@ -1,0 +1,32 @@
+# create table
+CREATE TABLE public.users2 (
+	id SERIAL,
+	name varchar NOT NULL,
+	description varchar NULL,
+	CONSTRAINT users_pk PRIMARY KEY (id)
+);
+
+
+# CREATE TABLE public.user_details (
+	user_id int4 NOT NULL,
+	user_email varchar NULL,
+	CONSTRAINT user_details_pk PRIMARY KEY (user_id),
+	CONSTRAINT user_details_users_fk FOREIGN KEY (user_id) REFERENCES public.users(id)
+);
+
+# insert
+INSERT INTO public.users ("name", "description") VALUES( 'Den', 'descr value');
+INSERT INTO public.users ("name", "description") VALUES( 'Joy Rivera', 'descr value');
+
+# update
+update public.users set "name" = 'Alex' where id > 1
+
+# delete
+delete from public.users where "id" = 6
+
+# select
+select *
+from public.users
+where "id" < 3 and "name" = 'Den'
+
+select * from public.users u join public.user_details us on u.id = us.user_id  where u."name" = 'Joy Rivera';
