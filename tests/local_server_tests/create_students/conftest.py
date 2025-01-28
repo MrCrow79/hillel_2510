@@ -2,6 +2,5 @@ import pytest
 
 
 @pytest.fixture(scope='session')
-def auth_header(local_server_ctrl):
-
-    return local_server_ctrl.auth(json={"name": "test", "password": "test"}).text
+def body_user_with_max_score():
+    return {"name": "Alex", "score": 50}

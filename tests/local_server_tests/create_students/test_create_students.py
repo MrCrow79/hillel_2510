@@ -6,9 +6,17 @@ from datetime import datetime, timedelta
 
 @pytest.mark.smoke
 @pytest.mark.local_server
-def test_create_students(local_server_ctrl, auth_header):
+@pytest.mark.parametrize('user_id', [1,2])
+@pytest.mark.parametrize('user_name', ['den', 'ivan'])
+def test_create_students(local_server_ctrl, user_name, auth_header, user_id):
 
+    print(f'run for user_id, user_name {user_id}={user_name}')
     local_server_ctrl.create_student(json={"name": "Alex", "score": 50}, auth_data=auth_header)
+
+
+def test_create_students_with_max_score(local_server_ctrl, body_user_with_max_score, auth_header):
+
+    local_server_ctrl.create_student(json=body_user_with_max_score, auth_data=auth_header)
 
 
 @pytest.mark.local_server

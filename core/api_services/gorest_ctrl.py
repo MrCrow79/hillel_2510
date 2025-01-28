@@ -11,14 +11,18 @@ class Gorest(BaseCtrl):
         self.url = url
 
 
-    def create_user(self, user_body, headers=None, expected_status_code=201):
+    def create_user(self, user_body, headers=None, extra_auth_token: dict=None, expected_status_code=201):
 
         url = f'{self.url}public/v2/users'
 
         if not headers:  # якщо нема headers
             headers = dict()  # створю headers порожній словник
 
-        headers.update(self._get_auth_headers())
+        if extra_auth_token is not None:
+            headers.update(extra_auth_token)
+        else:
+            headers.update(self._get_auth_headers())
+
 
         # Authorizaton: Bearer 180df87d1cd19c9a6220097af9834dc1bda7325bac5fb13ffe8a39d11f5dd49f
         return self.send_request(url=url, json=user_body, method='post', headers=headers,
