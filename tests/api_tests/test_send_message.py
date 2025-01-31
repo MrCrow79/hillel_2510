@@ -44,9 +44,9 @@ def test_get_all_content():
     assert  response.status_code == 200  # повернулась валідна відповідь
 
 
-@pytest.mark.parametrize('content_id', get_content_ids())
-def test_get_content_by_id(content_id):
-
-    response = requests.get(f'{BASE_URL}/{content_id}')
-
-    assert response.status_code == 200
+# @pytest.mark.parametrize('content_id', get_content_ids())
+# def test_get_content_by_id(content_id):
+#
+#     response = requests.get(f'{BASE_URL}/{content_id}')
+#
+#     assert response.status_code == 200

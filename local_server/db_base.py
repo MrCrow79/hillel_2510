@@ -137,8 +137,19 @@ class SQLiteActions(SQLiteConnector):
             c.commit()
 
 
-    def get_students(self):
+    def get_students(self, limit: int = None, sort_by: str = None, sort_type: str = None):
         query = 'select * from student'
+
+        if sort_by:
+            query += f' order by "{sort_by}"'
+
+            if sort_type:
+                query += f' {sort_type}'
+
+        if limit is not None:
+            query += f' limit {limit};'
+
+        print(query)
 
         with SQLiteConnector(self.sqlite_path) as c:
             return c.execute(query)

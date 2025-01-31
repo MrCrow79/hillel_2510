@@ -20,7 +20,7 @@ class LocalServer(BaseCtrl):
         return self.send_request(url=f'{self.url}students/{student_id}', method='get',
                                  expected_status_code=expected_status_code, schema=schema)
 
-    def get_students(self,  expected_status_code=200, is_need_schema_validation=True):
+    def get_students(self,  params: dict = None, expected_status_code=200, is_need_schema_validation=True):
 
         if is_need_schema_validation:
             schema = BaseUserSchema(many=True)
@@ -28,7 +28,7 @@ class LocalServer(BaseCtrl):
             schema=None
 
         return self.send_request(url=f'{self.url}students/', method='get',
-                                 expected_status_code=expected_status_code, schema=schema)
+                                 expected_status_code=expected_status_code, schema=schema, params=params)
 
 
     def create_student(self, json: dict, auth_data: str, expected_status_code=201, is_need_schema_validation=True):

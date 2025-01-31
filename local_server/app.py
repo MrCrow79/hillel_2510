@@ -12,7 +12,22 @@ SECRET_KEY = 'OLOLO_secret_key'
 
 @app.route('/students/', methods=['GET'])
 def get_students():
-    data = db.get_students()
+
+
+    limit = request.args.get('limit', 10)
+    sort_by = request.args.get('sort_by', None)
+    sort_type = None
+
+    if sort_by:
+        if sort_by.startswith('-'):
+            sort_type = 'desc'
+            sort_by = sort_by[1:]
+        else:
+            sort_type = 'asc'
+
+
+    data = db.get_students(limit=limit, sort_by=sort_by, sort_type=sort_type)
+
     return jsonify(data), 200
 
 
