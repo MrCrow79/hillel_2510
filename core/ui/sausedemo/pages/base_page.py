@@ -12,11 +12,17 @@ class BasePage:
 
     def open_page(self):
         self._driver.get(self.url)
+        return self
 
     def get_n_elements_presents(self, locator, quantity_of_elements, timeout=2, message=''):
 
         return WebDriverWait(self._driver, timeout=timeout).until(
             WaitNElements(locator=locator, quantity=quantity_of_elements),
+            message=message)
+
+    def _elements_present(self, locator, timeout=2, message=''):
+        return WebDriverWait(self._driver, timeout=timeout).until(
+            EC.presence_of_all_elements_located(locator),
             message=message)
 
     def _element_present(self, locator, timeout=2, message=''):

@@ -17,9 +17,3 @@ def driver():
     driver = Chrome()
     yield driver
     driver.close()
-
-@pytest.fixture
-def login_page(driver):
-    login_page = LoginPage(driver)
-    login_page.open_page()
-    return login_page

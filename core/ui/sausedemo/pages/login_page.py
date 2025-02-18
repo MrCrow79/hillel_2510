@@ -1,17 +1,5 @@
-import time
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-
-from core.ui.sausedemo.login_page_locators import LoginPageLocators
+from core.ui.sausedemo.locators.login_page_locators import LoginPageLocators
 from core.ui.sausedemo.pages.product_page import ProductsPage
-from core.ui.sausedemo.product_page_locators import ProductPageLocators
-from setting import d_settings
-
 
 from core.ui.sausedemo.pages.base_page import BasePage
 from setting import d_settings
@@ -40,7 +28,7 @@ class LoginPage(BasePage):
     def check_creds_are_wrong(self, timeout=1):
         assert self._driver.current_url == self.url, f'expected current url is {self.url}'
 
-        self.get_n_elements_presents(locator=LoginPageLocators.red_cross, quantity_of_elements=4,
+        self.get_n_elements_presents(locator=LoginPageLocators.red_cross, quantity_of_elements=3,
                                      timeout=timeout, message='Cant find red cross if user input wrong creds')
 
 
