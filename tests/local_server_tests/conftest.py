@@ -1,10 +1,9 @@
+from lessons.lesson_13.pathlib_base import BASE_DIR
 from setting import d_settings
 from core.api_services.local_server.local_server_ctrl import LocalServer
 import time
 import pytest
 import os
-
-from utils import BASE_DIR
 
 
 # scopes:

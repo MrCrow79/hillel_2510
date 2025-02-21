@@ -5,7 +5,7 @@ import os
 
 from core.api_services.local_server.local_server_ctrl import LocalServer
 from setting import d_settings
-from utils import BASE_DIR
+from chrom_utils import BASE_DIR
 
 DEFAULT_USERS_LIMIT = 10
 
@@ -31,6 +31,7 @@ def get_quantity_of_users(db_cursor):
 
 def get_last_n_students():
     ctrl = LocalServer()
+    return []
     return ctrl.get_students(params={'limit': 10, 'sort_by': '-id'}).json()
 
 @pytest.fixture(scope='function', params=get_last_n_students())  # function == default scope

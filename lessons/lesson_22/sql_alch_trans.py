@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 from core.db_service.orm.tables.orm_products import Product
 from core.db_service.orm.tables.sql_base import Base
-from utils import PG_DATABASE_URL
+from chrom_utils import PG_DATABASE_URL
 
 local_faker = Faker()
 

@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from core.db_service.orm.tables.orm_users import ORMUser
 from core.db_service.orm.tables.sql_base import Base
 from setting import d_settings
-from utils import db_connection_str
+from chrom_utils import db_connection_str
 
 local_faker = Faker()
 

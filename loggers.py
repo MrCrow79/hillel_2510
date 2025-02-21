@@ -1,7 +1,8 @@
 import logging.config
 import os
 
-from utils import BASE_DIR
+from lessons.lesson_13.pathlib_base import BASE_DIR
+
 
 logging.config.fileConfig(os.path.join(BASE_DIR, 'logging_config.ini'))
 
