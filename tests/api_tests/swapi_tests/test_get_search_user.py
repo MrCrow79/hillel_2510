@@ -1,10 +1,13 @@
 import pytest
+import allure
 
 from core.api_services.swapi_ctrl import Swapi
 
 swapi_ctrl = Swapi()
 
-
+@allure.epic("API test")
+@allure.feature("Swapi tests")
+@allure.story("Search user")
 @pytest.mark.swapi
 def test_get_search_user():
 

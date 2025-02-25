@@ -1,10 +1,14 @@
-from core.api_services.gorest_ctrl import Gorest
+import allure
 
-gorest_ctrl = Gorest()
+from tests.api_tests.gorest_tests.base_gorest import BaseGorestTest
 
 
-def test_get_user():
+@allure.story("Get user")
+@allure.severity(allure.severity_level.CRITICAL)
+class TestGetUser(BaseGorestTest):
 
-    gorest_ctrl.get_user(5, expected_status_code=404)
+    def test_get_user(self):
+
+        self.gorest_ctrl.get_user(5, expected_status_code=404)
 
 

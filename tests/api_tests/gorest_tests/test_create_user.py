@@ -1,21 +1,25 @@
-import pytest
-
-from core.api_services.gorest_ctrl import Gorest
 import time
 
-gorest_ctrl = Gorest()
+import allure
+
+from tests.api_tests.gorest_tests.base_gorest import BaseGorestTest
 
 
-@pytest.mark.gorest
-def test_create_user():
+@allure.story("Create user")
+class TestCreateUser(BaseGorestTest):
 
-    user_body = {
-        "name":"Tenali Ramakrishna",
-        "gender":"male",
-        "email":f"tenali.ramakrishna@{time.time()}.com",
-        "status":"active"
-    }
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title('Create base user')
+    def test_create_user(self):
+        """ some description of tests test_create_user"""
 
-    gorest_ctrl.create_user(user_body=user_body, headers={'User-Agent': 'Custom-user-agent'})
+        user_body = {
+            "name":"Tenali Ramakrishna",
+            "gender":"male",
+            "email":f"tenali.ramakrishna@{time.time()}.com",
+            "status":"active"
+        }
+
+        self.gorest_ctrl.create_user(user_body=user_body, headers={'User-Agent': 'Custom-user-agent'})
 
 

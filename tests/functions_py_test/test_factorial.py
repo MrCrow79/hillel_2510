@@ -9,5 +9,6 @@ def test_factorial_positive_simple():
     expected_result = 120
     actual_result = factorial(5)
 
+
     assert actual_result == expected_result
 

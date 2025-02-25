@@ -4,6 +4,8 @@ __pycache__/
 *$py.class
 
 .idea/
+allure-results
+allure-report
 
 asd2.py
 secrets.ini
