@@ -32,7 +32,7 @@ def time_logging():
     print(f'Tests execution time is {time.time() - start_time}')
 
 
-@pytest.fixture(scope='session', autouse=bool(int(d_settings.delete_logs_after_tests)))
+@pytest.fixture(scope='session') #, autouse=bool(int(d_settings.delete_logs_after_tests)))
 def deleting_pytest_logs_files():
     yield
     for dirname, subdirs, files in os.walk(BASE_DIR):
