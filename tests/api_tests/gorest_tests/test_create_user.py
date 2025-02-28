@@ -36,7 +36,7 @@ class TestCreateUser(BaseGorestTest):
 
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.title('Additional test for working with env vars')
-    def test_work_with_env(self):
+    def test_work_with_env_2(self):
 
         with soft_assertions():
             assert_that(d_settings.runner, 'checking d_settings.runner').is_equal_to('jenkins')
