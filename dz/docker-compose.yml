@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: anna
+      POSTGRES_PASSWORD: anna
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - my_network
+
+  app:
+    build:
+      context: .
+      dockerfile: base.Dockerfile
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgresql://anna:anna@db:5432/postgres"
+      DB_HOST: "db"
+    networks:
+      - my_network
+    volumes:
+      - .:/app
+
+networks:
+  my_network:
